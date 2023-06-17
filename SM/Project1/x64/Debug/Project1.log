@@ -1,0 +1,2 @@
+﻿Scene.obj : error LNK2019: unresolved external symbol "public: struct SDL_Texture * __cdecl Object::IMG_LoadTexture(struct SDL_Renderer *,char const *)" (?IMG_LoadTexture@Object@@QEAAPEAUSDL_Texture@@PEAUSDL_Renderer@@PEBD@Z) referenced in function "public: void __cdecl Scene::AddObject(int,float,float,struct SDL_Renderer *,char const *)" (?AddObject@Scene@@QEAAXHMMPEAUSDL_Renderer@@PEBD@Z)
+C:\Users\david\Documents\C_Games\SphereMatcherC\SM\x64\Debug\SphereMatcher.exe : fatal error LNK1120: 1 unresolved externals
