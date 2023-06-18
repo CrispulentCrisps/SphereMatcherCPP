@@ -1,10 +1,10 @@
 #pragma once
 #include "Object.h"
-#include <list>
+#include <vector>
 
 class Scene
 {
 public:
-	std::list<Object> objects;
-	void AddObject(int ID, float X, float Y, SDL_Renderer* rend, const char* FilePath);
+	std::vector<Object> objects;
+	void AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend, const char* FilePath);
 };

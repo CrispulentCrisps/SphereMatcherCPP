@@ -1,6 +1,6 @@
 #include "Object.h"
 
-SDL_Texture* IMG_LoadTexture(SDL_Renderer* renderer, const char* file)
+SDL_Texture* Object::IMG_LoadTexture(SDL_Renderer* renderer, const char* file)
 {
     SDL_Texture* texture = NULL;
     SDL_Surface* surface = IMG_Load(file);

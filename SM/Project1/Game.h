@@ -21,7 +21,7 @@ public:
 	void Start();
 	void End();
 	void Input();
-	void Render();
+	void Render(Scene curscene);
 	void CreateScenes();
 };
 

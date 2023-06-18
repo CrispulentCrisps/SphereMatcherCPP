@@ -14,7 +14,7 @@ void Game::Update()
 
 		Input();
 
-		Render();
+		Render(scenes.top());
 
 		SDL_UpdateWindowSurface(window);
 	
@@ -44,6 +44,8 @@ void Game::Start()
 			screen = SDL_GetWindowSurface(window);
 		}
 	}
+
+	CreateScenes();
 }
 
 void Game::End()
@@ -66,12 +68,22 @@ void Game::Input()
 	}
 }
 
-void Game::Render()
+void Game::Render(Scene curscene)
 {
+	SDL_FreeSurface(screen);
+	SDL_RenderClear(renderer); //clears the renderer
+	for (unsigned i = 0; i < curscene.objects.size(); i++)
+	{
+		//SDL_RenderCopy(renderer,curscene.objects , NULL, &);
+	}
+	
+
+	SDL_RenderPresent(renderer);
 }
 
 void Game::CreateScenes()
 {
 	Scene* TestScene = new Scene();
-	TestScene->AddObject(0, 0, 0, renderer, "/res/img/exp/TestBoi.png");
+	TestScene->objects.resize(5);
+	TestScene->AddObject(0, 0, 0,128 ,128 ,renderer, "/res/img/exp/TestBoi.png");
 }
