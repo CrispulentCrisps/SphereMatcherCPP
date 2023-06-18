@@ -43,9 +43,10 @@ void Game::Start()
 			//Get window surface
 			screen = SDL_GetWindowSurface(window);
 		}
+
+		CreateScenes();
 	}
 
-	CreateScenes();
 }
 
 void Game::End()
