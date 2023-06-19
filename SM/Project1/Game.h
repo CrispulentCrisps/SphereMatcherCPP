@@ -21,7 +21,7 @@ public:
 	void Start();
 	void End();
 	void Input();
-	void Render(Scene curscene);
+	void Render(Scene curscene, SDL_Renderer* rend);
 	void CreateScenes();
 };
 

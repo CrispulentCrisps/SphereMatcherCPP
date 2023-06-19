@@ -8,16 +8,13 @@ void Game::Update()
 {
 	while (Running)
 	{
-		screen = SDL_GetWindowSurface(window);
-
-		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 0, 0));
-
 		Input();
-
-		Render(scenes.top());
+			
+		Render(scenes.top(), renderer);
 
 		SDL_UpdateWindowSurface(window);
-	
+
+		SDL_Delay(1);
 	}
 }
 
@@ -26,14 +23,14 @@ void Game::Start()
 	Running = true;
 	window = NULL;
 	//Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 	}
 	else
 	{
 		//Create window
-		window = SDL_CreateWindow("SMC", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow("SMC", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
 			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -42,9 +39,19 @@ void Game::Start()
 		{
 			//Get window surface
 			screen = SDL_GetWindowSurface(window);
+			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+			if (renderer != NULL)
+			{
+				printf("WORK");
+			}
+			else
+			{
+				const char* s = SDL_GetError();
+				printf("FUCK\n");
+				printf(s);
+			}
+			CreateScenes();
 		}
-
-		CreateScenes();
 	}
 
 }
@@ -69,22 +76,22 @@ void Game::Input()
 	}
 }
 
-void Game::Render(Scene curscene)
+void Game::Render(Scene curscene, SDL_Renderer* rend)
 {
-	SDL_FreeSurface(screen);
-	SDL_RenderClear(renderer); //clears the renderer
+	SDL_RenderClear(rend);
 	for (unsigned i = 0; i < curscene.objects.size(); i++)
 	{
-		//SDL_RenderCopy(renderer,curscene.objects , NULL, &);
+		const SDL_Rect* rec = curscene.objects[i].rect;
+		SDL_RenderCopy(rend, curscene.objects[i].tex, NULL, rec);
 	}
-	
 
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(rend);
 }
 
 void Game::CreateScenes()
 {
-	Scene* TestScene = new Scene();
-	TestScene->objects.resize(5);
-	TestScene->AddObject(0, 0, 0,128 ,128 ,renderer, "/res/img/exp/TestBoi.png");
+	Scene TestScene;
+	TestScene.objects.resize(5);
+	TestScene.AddObject(0, 0, 0,128 ,128 ,renderer, "/res/img/exp/TestBoi.png");
+	scenes.push(TestScene);
 }
