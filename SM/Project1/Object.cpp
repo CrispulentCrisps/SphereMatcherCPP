@@ -28,3 +28,15 @@ void Object::SetVelocity(float xvel, float yvel)
     XVel = xvel;
     YVel = yvel;
 }
+
+void Object::UpdateObject()
+{
+    if (!Static)
+    {
+        X += XVel;
+        Y += YVel;
+
+        rect->x = X;
+        rect->y = Y;
+    }
+}
