@@ -6,10 +6,14 @@ const int SCREEN_HEIGHT = 720;
 
 void Game::Update()
 {
+	int FCount = 0;
 	while (Running)
 	{
+		FCount++;
+		std::cout << FCount << "\n";
+		
 		Input();
-			
+
 		Render(scenes.top(), renderer);
 
 		SDL_UpdateWindowSurface(window);
@@ -78,7 +82,6 @@ void Game::Input()
 
 void Game::Render(Scene curscene, SDL_Renderer* rend)
 {
-	SDL_RenderClear(rend);
 	for (unsigned i = 0; i < curscene.objects.size(); i++)
 	{
 		const SDL_Rect* rec = curscene.objects[i].rect;
@@ -92,6 +95,6 @@ void Game::CreateScenes()
 {
 	Scene TestScene;
 	TestScene.objects.resize(5);
-	TestScene.AddObject(0, 0, 0,128 ,128 ,renderer, "/res/img/exp/TestBoi.png");
+	TestScene.AddObject(0, 10, 10,128 ,128 ,renderer, "./res/img/exp/TestBoi.png");
 	scenes.push(TestScene);
 }

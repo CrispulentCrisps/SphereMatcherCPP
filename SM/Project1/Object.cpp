@@ -8,6 +8,12 @@ SDL_Texture* Object::IMG_LoadTexture(SDL_Renderer* renderer, const char* file)
         texture = SDL_CreateTextureFromSurface(renderer, surface);
         SDL_FreeSurface(surface);
     }
+    else
+    {
+        const char* s = SDL_GetError();
+        printf("FUCK\n");
+        printf(s);
+    }
     return texture;
 }
 
