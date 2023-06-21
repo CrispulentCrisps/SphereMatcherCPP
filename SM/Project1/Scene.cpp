@@ -29,19 +29,32 @@ void Scene::AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend
 	objects.push_back(newobj);
 }
 
-void Scene::AddUI(const char* font, int x, int y, int size, int type, int w, int h, int xpad, int ypad, int destination, SDL_Colour* colour, SDL_Colour textcolour, SDL_Renderer* rend, const char* text)
+void Scene::AddUI(const char* font, int x, int y, int size, int type, int w, int h, int xpad, int ypad, int destination, SDL_Colour colour, SDL_Colour textcolour, SDL_Renderer* rend, const char* text)
 {
 	GUI* gui = new GUI();
 	TTF_Font* F = TTF_OpenFont(font, size);
 
-	gui->surf = TTF_RenderText_Solid(F, text, textcolour);
+	if (F == NULL)
+	{
+		std::cout << "\n UI FONT NOT LOADED: " << SDL_GetError();
+	}
+	else
+	{
+		gui->surf = TTF_RenderText_Solid(F, text, textcolour);
 
-	gui->tex = SDL_CreateTextureFromSurface(rend, gui->surf);
+		gui->tex = SDL_CreateTextureFromSurface(rend, gui->surf);
 
-	gui->Width = w;
-	gui->Height = h;
-	gui->rec->x = x - ((sizeof(text) / 8) * size) - xpad;
-	gui->rec->y = y - ((sizeof(text) / 8) * size) - ypad;
-	gui->rec->w = ((sizeof(text) / 8) * size) + (xpad/2);
-	gui->rec->h = size + (ypad/2);
+		gui->R = colour.r;
+		gui->G = colour.g;
+		gui->B = colour.b;
+
+		gui->rec = new SDL_Rect;
+		gui->Width = w;
+		gui->Height = h;
+		gui->rec->x = x - (((sizeof(text) / 8) * size) - xpad);
+		gui->rec->y = y - (((sizeof(text) / 8) * size) - ypad);
+		gui->rec->w = gui->Width;
+		gui->rec->h = gui->Height;
+		ui.push_back(gui);
+	}
 }

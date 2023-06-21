@@ -4,14 +4,14 @@
 #include <stack>
 #include "Scene.h"
 #include "resource.h"
+#include "AudioSystem.h"
 
 class Game
 {
 	//Variables
 public:
-	const int GUI_STANDBY = 90 + 90 + 180;
-	const int GUI_ACTIVE = 45 + 45 + 90;
-	
+	const char* GAME_FONT = "./res/font/Gepestev-nRJgO.ttf";
+
 	bool Running;
 	SDL_Window* window;
 	SDL_Surface* screen;

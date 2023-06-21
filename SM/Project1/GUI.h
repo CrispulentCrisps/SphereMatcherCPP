@@ -12,6 +12,10 @@ public:
 	float YPadding;
 	int Destination;
 
+	Uint8 R;
+	Uint8 G;
+	Uint8 B;
+
 	SDL_Texture* tex;
 	SDL_Rect* rec;
 	SDL_Surface* surf;

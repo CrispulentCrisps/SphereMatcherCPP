@@ -1,11 +1,5 @@
-﻿  GUI.cpp
+﻿  AudioSystem.cpp
   Game.cpp
-  Object.cpp
-C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Object.cpp(39,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Object.cpp(40,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Scene.cpp
-C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Scene.cpp(14,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Scene.cpp(15,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Source.cpp
   Generating Code...
   Project1.vcxproj -> C:\Users\david\Documents\C_Games\SphereMatcherC\SM\x64\Debug\SphereMatcher.exe
