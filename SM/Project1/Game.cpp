@@ -1,9 +1,5 @@
 #include "Game.h"
 
-//Screen dimension constants
-int SCREEN_WIDTH = 1280;
-int SCREEN_HEIGHT = 720;
-
 void Game::Update()
 {
 	int FCount = 0;
@@ -53,6 +49,11 @@ void Game::Start()
 				printf(s);
 			}
 			TTF_Init();
+			sfxpath.push_back("./res/sfx/Jingle.wav");
+			msxpath.push_back("./res/msx/Test.wav");
+			as->LoadAudio(sfxpath,msxpath);
+			as->InitSystem(2);
+			as->PlayAudio(0, true);
 			CreateScenes();
 		}
 	}

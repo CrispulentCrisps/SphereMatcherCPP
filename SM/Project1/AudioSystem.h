@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL_audio.h>
+#include <SDL_mixer.h>
 #include <string>
-#include <list>
 #include "Scene.h"
 
 using namespace std;
@@ -11,28 +11,23 @@ class AudioSystem
 public:
 	//variables
 	const int AUDIO_RATE = 480000;
-	const int NO_AUDIO = 0;
-	const int MONO = 1;
-	const int STEREO = 2;
+	vector<string> SfxPaths;
+	vector<string> TrackPaths;
 
-	SDL_AudioDeviceID* device;
-	Uint8* AudioBuffer;
+	int ChannelCount;
+	int AudioBuffer;
 
-	//structs
-	struct Audio
-	{
-		SDL_AudioSpec* specs;
-		string FilePath;
-		float AudioLength;
-	};
-
-	list<Audio> Tracks;
+	vector<Mix_Music*> M_Tracks;
+	vector<Mix_Chunk*> M_Sfx;
 
 	//functions
-	void InitSystem();
-	void PlayAudio();
+	void InitSystem(int AudioMode);
+	void CloseSystem();
+	void LoadAudio(vector<string> Sfx, vector<string> Msx);
+	void PlayAudio(int AudioID, bool AudioType);
 	void StopAudio();
 	void FadeAudio();
 	void UpdateAudio();
+	void ListAudio();
 };
 

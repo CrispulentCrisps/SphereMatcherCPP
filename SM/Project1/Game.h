@@ -11,6 +11,9 @@ class Game
 	//Variables
 public:
 	const char* GAME_FONT = "./res/font/Gepestev-nRJgO.ttf";
+	//Screen dimensions
+	int SCREEN_WIDTH = 1280;
+	int SCREEN_HEIGHT = 720;
 
 	bool Running;
 	SDL_Window* window;
@@ -18,6 +21,9 @@ public:
 	SDL_Renderer* renderer;
 	Scene AvailableScenes[1];
 	std::stack<Scene> scenes;
+	AudioSystem* as;
+	vector<string> sfxpath;
+	vector<string> msxpath;
 	//Structs
 	
 
