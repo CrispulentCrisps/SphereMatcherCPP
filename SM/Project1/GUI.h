@@ -19,5 +19,10 @@ public:
 	SDL_Texture* tex;
 	SDL_Rect* rec;
 	SDL_Surface* surf;
+
+	void ChangeText(const char* text);
+	bool Hover();
+	bool Clicked();
+	void UpdateButton();
 };
 

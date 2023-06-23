@@ -51,9 +51,11 @@ void Game::Start()
 			TTF_Init();
 			sfxpath.push_back("./res/sfx/Jingle.wav");
 			msxpath.push_back("./res/msx/Test.wav");
+			as = new AudioSystem;
 			as->LoadAudio(sfxpath,msxpath);
-			as->InitSystem(2);
-			as->PlayAudio(0, true);
+			as->ListAudio();
+			as->InitSystem(1);
+			as->PlayAudio(0, false);
 			CreateScenes();
 		}
 	}

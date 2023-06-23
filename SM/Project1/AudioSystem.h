@@ -10,12 +10,9 @@ class AudioSystem
 {
 public:
 	//variables
-	const int AUDIO_RATE = 480000;
+	const int AUDIO_RATE = 44100;
 	vector<string> SfxPaths;
 	vector<string> TrackPaths;
-
-	int ChannelCount;
-	int AudioBuffer;
 
 	vector<Mix_Music*> M_Tracks;
 	vector<Mix_Chunk*> M_Sfx;

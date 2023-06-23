@@ -11,6 +11,7 @@ class Game
 	//Variables
 public:
 	const char* GAME_FONT = "./res/font/Gepestev-nRJgO.ttf";
+	const char* OS = SDL_GetPlatform();
 	//Screen dimensions
 	int SCREEN_WIDTH = 1280;
 	int SCREEN_HEIGHT = 720;

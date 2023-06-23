@@ -44,6 +44,8 @@ void Scene::AddUI(const char* font, int x, int y, int size, int type, int w, int
 
 		gui->tex = SDL_CreateTextureFromSurface(rend, gui->surf);
 
+		SDL_FreeSurface(gui->surf);
+
 		gui->R = colour.r;
 		gui->G = colour.g;
 		gui->B = colour.b;
