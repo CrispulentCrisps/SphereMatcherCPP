@@ -1,28 +1,39 @@
 #pragma once
 #include <SDL_ttf.h>
 
-class GUI
-{
-public:
-	TTF_Font* Font;
-	int UIType;
-	int Width;
-	int Height;
-	float XPadding;
-	float YPadding;
-	int Destination;
+	class GUI
+	{
+	public:
+		TTF_Font* Font;
+		
+		int UIType;
+		int Width;
+		int Height;
+		int X;
+		int Y;
+		float XPadding;
+		float YPadding;
+		int Destination;
+		bool Hovering;
 
-	Uint8 R;
-	Uint8 G;
-	Uint8 B;
+		SDL_Colour textcol;
 
-	SDL_Texture* tex;
-	SDL_Rect* rec;
-	SDL_Surface* surf;
+		Uint8 R;
+		Uint8 G;
+		Uint8 B;
 
-	void ChangeText(const char* text);
-	bool Hover();
-	bool Clicked();
-	void UpdateButton();
-};
+		Uint8 S_R;
+		Uint8 S_G;
+		Uint8 S_B;
+
+		SDL_Texture* tex;
+		SDL_Rect* rec;
+		SDL_Surface* surf;
+
+		void ChangeText(const char* text);
+		bool Hover(int x, int y);
+		bool Clicked(SDL_Event e);
+		void Update(int x, int y, SDL_Event e);
+		void GUI_Render(SDL_Renderer* rend);
+	};
 
