@@ -17,6 +17,7 @@ public:
 	int SCREEN_HEIGHT = 1080;
 	int MouseX;
 	int MouseY;
+	int FCount = 0;
 	SDL_Event e;
 
 	bool Running;

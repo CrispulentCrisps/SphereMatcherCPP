@@ -32,7 +32,7 @@ void Scene::AddUI(const char* font, int x, int y, int size, int type, int w, int
 {
 	GUI* gui = new GUI();
 	gui->Font = TTF_OpenFont(font, size);
-
+	gui->text = text;
 	if (gui->Font == NULL)
 	{
 		std::cout << "\n UI FONT NOT LOADED: " << SDL_GetError();

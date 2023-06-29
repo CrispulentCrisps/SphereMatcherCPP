@@ -1,11 +1,11 @@
 #pragma once
 #include <SDL_ttf.h>
-
+#include <string>
 	class GUI
 	{
 	public:
 		TTF_Font* Font;
-		
+		std::string text;
 		int UIType;
 		int Width;
 		int Height;
@@ -15,6 +15,7 @@
 		float YPadding;
 		int Destination;
 		bool Hovering;
+		bool MouseDown = false;
 
 		SDL_Colour textcol;
 
@@ -29,8 +30,8 @@
 		SDL_Texture* tex;
 		SDL_Rect* rec;
 		SDL_Surface* surf;
+		SDL_Renderer* rend;
 
-		void ChangeText(const char* text);
 		bool Hover(int x, int y);
 		bool Clicked(SDL_Event e);
 		void Update(int x, int y, SDL_Event e);

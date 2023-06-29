@@ -2,7 +2,6 @@
 
 void Game::Update()
 {
-	int FCount = 0;
 	while (Running)
 	{
 		FCount++;
@@ -56,7 +55,7 @@ void Game::Start()
 			as->LoadAudio(sfxpath,msxpath);
 			as->ListAudio();
 			as->InitSystem(1);
-			//as->PlayAudio(0, false);
+			as->PlayAudio(0, false);
 			CreateScenes();
 		}
 	}
@@ -102,7 +101,6 @@ void Game::Render(Scene curscene, SDL_Renderer* rend)
 		
 		SDL_Colour blank = { 0, 0, 0 };
 		SDL_SetRenderDrawColor(rend, blank.r, blank.g, blank.b, 0);
-		
 		SDL_RenderCopy(rend, curscene.ui[i]->tex, NULL, rec);
 	}
 	SDL_RenderPresent(rend);
