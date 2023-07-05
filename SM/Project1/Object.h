@@ -7,7 +7,7 @@
 class Object
 {
 public:
-	bool Static;
+	bool Static = false;
 	int ID;
 	float X;
 	float Y;

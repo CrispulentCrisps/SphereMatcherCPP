@@ -32,7 +32,7 @@ public:
 	SDL_Renderer* renderer;
 	
 	Scene AvailableScenes[1];
-	std::stack<Scene> scenes;
+	std::stack<Scene*> scenes;
 	AudioSystem* as;
 	vector<string> sfxpath;
 	vector<string> msxpath;
@@ -45,7 +45,7 @@ public:
 	void Start();
 	void End();
 	void Input();
-	void Render(Scene curscene, SDL_Renderer* rend);
+	void Render(Scene* curscene, SDL_Renderer* rend);
 	void CreateScenes();
 };
 
