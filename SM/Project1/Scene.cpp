@@ -12,7 +12,7 @@ void Scene::AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend
 	newobj->W = W;
 	newobj->rect = new SDL_Rect;
 	newobj->rect->x = X;
-	newobj->rect->y = Y;
+	newobj->rect->y = Y;	
 	newobj->rect->w = newobj->W;
 	newobj->rect->h = newobj->H;
 
@@ -24,7 +24,7 @@ void Scene::AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend
 	{
 		std::cout << SDL_GetError();
 	}
-
+	Object_Count++;
 	objects.push_back(newobj);
 }
 
@@ -63,4 +63,5 @@ void Scene::AddUI(const char* font, int x, int y, int size, int type, int w, int
 		gui->UIType = type;
 		ui.push_back(gui);
 	}
+	GUI_Count++;
 }

@@ -12,7 +12,7 @@ void AudioSystem::InitSystem(int AudioMode)
 
 		Mix_Init(MIX_INIT_MOD | MIX_INIT_OGG | MIX_INIT_MP3);
 
-		if (Mix_OpenAudio(AUDIO_RATE, MIX_DEFAULT_FORMAT, AudioMode, 2048) < 0)
+		if (Mix_OpenAudio(AUDIO_RATE, MIX_DEFAULT_FORMAT, AudioMode, 512) < 0)
 		{
 			cout << "\nAUDIO SYSTEM FAILED TO INTIIALISE : " << SDL_GetError();
 		}

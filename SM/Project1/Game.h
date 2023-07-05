@@ -15,6 +15,12 @@ public:
 	//Screen dimensions
 	int SCREEN_WIDTH = 1920;
 	int SCREEN_HEIGHT = 1080;
+	int AUDIO_RATE = 512;
+
+	float Dt = 0;
+	float Now = 0;
+	float Then = 0;
+
 	int MouseX;
 	int MouseY;
 	int FCount = 0;
@@ -24,6 +30,7 @@ public:
 	SDL_Window* window;
 	SDL_Surface* screen;
 	SDL_Renderer* renderer;
+	
 	Scene AvailableScenes[1];
 	std::stack<Scene> scenes;
 	AudioSystem* as;

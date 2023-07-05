@@ -11,7 +11,7 @@ SDL_Texture* Object::IMG_LoadTexture(SDL_Renderer* renderer, const char* file)
     else
     {
         const char* s = SDL_GetError();
-        printf("FUCK\n");
+        printf("\nFUCK: CANNOT LOAD TEXTURE");
         printf(s);
     }
     return texture;

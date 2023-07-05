@@ -6,6 +6,9 @@
 	public:
 		TTF_Font* Font;
 		std::string text;
+		std::string inputtext;
+		std::string ghosttext;
+
 		int UIType;
 		int Width;
 		int Height;
@@ -16,8 +19,10 @@
 		int Destination;
 		bool Hovering;
 		bool MouseDown = false;
+		bool Focused = false;
 
 		SDL_Colour textcol;
+		SDL_Colour ghostcol;
 
 		Uint8 R;
 		Uint8 G;

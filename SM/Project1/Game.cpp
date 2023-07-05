@@ -6,8 +6,8 @@ void Game::Update()
 	{
 		FCount++;
 		
-		std::cout << FCount << "\n";
-		
+		std::cout << FCount << "\n" << scenes.top().GUI_Count << "\n" << scenes.top().Object_Count << "\n";
+	
 		Input();
 
 		Render(scenes.top(), renderer);
@@ -55,7 +55,7 @@ void Game::Start()
 			as->LoadAudio(sfxpath,msxpath);
 			as->ListAudio();
 			as->InitSystem(1);
-			as->PlayAudio(0, false);
+			//as->PlayAudio(0, false);
 			CreateScenes();
 		}
 	}
@@ -113,9 +113,11 @@ void Game::CreateScenes()
 	TestScene.AddObject(1, 64, 64,128 ,128 ,renderer, "./res/img/exp/Amonger.png", true, 0);
 	SDL_Color col = { 128, 128, 128 };
 	SDL_Color col2 = { 90, 90, 180 };
+	SDL_Color col3 = { 128, 90, 180 };
 	SDL_Colour coltex = { 255, 255, 255 };
 	TestScene.AddUI(GAME_FONT, 240, 240, 128, 0, 256, 64, 8, 8, 0, col, coltex, renderer, "Engine time bay bee");
 	TestScene.AddUI(GAME_FONT, 0, 304, 128, 1, 1920, 128, 8, 8, 0, col2, coltex, renderer, "God fucking dammit an amogus got in the fucking engine");
+	TestScene.AddUI(GAME_FONT, 0, 428, 64, 2, 640, 128, 8, 8, 0, col3, coltex, renderer, "Please enter some text");
 	TestScene.objects[0]->SetVelocity(.5, .25);
 	TestScene.objects[1]->SetVelocity(.25, .125);
 	scenes.push(TestScene);
