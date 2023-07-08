@@ -1,9 +1,14 @@
+/*
+* //////////////////////////////////////////////////////////
+* / This class is for the main engine to start and loop in /
+* //////////////////////////////////////////////////////////
+*/
+
 #pragma once
 #include <stdio.h>
 #include <math.h>
 #include <stack>
 #include "Scene.h"
-#include "resource.h"
 #include "AudioSystem.h"
 
 class Game
@@ -37,7 +42,6 @@ public:
 	vector<string> sfxpath;
 	vector<string> msxpath;
 	//Structs
-	
 
 	//Functions
 public:

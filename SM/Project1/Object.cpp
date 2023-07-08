@@ -17,6 +17,31 @@ SDL_Texture* Object::IMG_LoadTexture(SDL_Renderer* renderer, const char* file)
     return texture;
 }
 
+void Object::Start(int ID, float X, float Y, int w, int h, SDL_Renderer* rend, const char* FilePath, bool Static)
+{
+    ID = ID;
+    SetPosition(X, Y);
+    SetVelocity(0, 0);
+    imgpath = FilePath;
+    tex = IMG_LoadTexture(rend, imgpath);
+    H = h;
+    W = w;
+    rect = new SDL_Rect;
+    rect->x = X;
+    rect->y = Y;
+    rect->w = W;
+    rect->h = H;
+
+    if (rect != NULL)
+    {
+        std::cout << "RECT LOADED";
+    }
+    else
+    {
+        std::cout << SDL_GetError();
+    }
+}
+
 void Object::SetPosition(float x, float y)
 {
     X = x;

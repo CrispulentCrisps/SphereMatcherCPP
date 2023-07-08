@@ -1,29 +1,9 @@
 #include "Scene.h"
 
-void Scene::AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend, const char* FilePath, bool Static, int ObjectType)
+void Scene::AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend, const char* FilePath, bool Static)
 {
 	Object * newobj = new Object();
-	newobj->ID = ID;
-	newobj->SetPosition(X,Y);
-	newobj->SetVelocity(0,0);
-	newobj->imgpath = FilePath;
-	newobj->tex = newobj->IMG_LoadTexture(rend, newobj->imgpath);
-	newobj->H = H;
-	newobj->W = W;
-	newobj->rect = new SDL_Rect;
-	newobj->rect->x = X;
-	newobj->rect->y = Y;	
-	newobj->rect->w = newobj->W;
-	newobj->rect->h = newobj->H;
-
-	if (newobj->rect != NULL)
-	{
-		std::cout << "RECT LOADED";
-	}
-	else
-	{
-		std::cout << SDL_GetError();
-	}
+	newobj->Start(ID,X,Y,W,H,rend,FilePath,Static);
 	Object_Count++;
 	objects.push_back(newobj);
 }

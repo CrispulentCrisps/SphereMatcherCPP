@@ -76,7 +76,7 @@ void GUI::Update(int x, int y, SDL_Event e)
 
 void GUI::GUI_Render(SDL_Renderer* rend)
 {
-	//SDL_DestroyTexture(tex);
+	SDL_DestroyTexture(tex);
 	SDL_Colour col;
 	col = textcol;
 	switch (UIType)
@@ -129,6 +129,5 @@ void GUI::GUI_Render(SDL_Renderer* rend)
 
 	tex = SDL_CreateTextureFromSurface(rend, surf);
 
-	SDL_FreeSurface(surf);
-	
+	SDL_FreeSurface(surf);	
 }

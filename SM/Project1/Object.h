@@ -21,7 +21,7 @@ public:
 	SDL_Rect* rect;
 	SDL_Texture* tex;
 
-	
+	void Start(int ID, float X, float Y, int W, int H, SDL_Renderer* rend, const char* FilePath, bool Static);
 	void SetPosition(float x, float y);
 	void SetVelocity(float xvel, float yvel);
 	void UpdateObject();
