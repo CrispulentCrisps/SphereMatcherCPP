@@ -2,8 +2,7 @@
 
 void Scene::AddObject(int ID, float X, float Y, int W, int H, SDL_Renderer* rend, const char* FilePath, bool Static)
 {
-	Object * newobj = new Object();
-	newobj->Start(ID,X,Y,W,H,rend,FilePath,Static);
+	Object * newobj = new Object(ID, X, Y, W, H, rend, FilePath, Static);
 	Object_Count++;
 	objects.push_back(newobj);
 }

@@ -1,2 +1,11 @@
-﻿  Game.cpp
-  Project1.vcxproj -> C:\Users\david\Documents\C_Games\SphereMatcherC\SM\x64\Debug\SphereMatcher.exe
+﻿  LevelEditor.cpp
+  Path.cpp
+C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Path.cpp(34,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Path.cpp(34,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Path.cpp(34,78): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\david\Documents\C_Games\SphereMatcherC\SM\Project1\Path.cpp(34,52): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Scene.cpp
+  Source.cpp
+  Generating Code...
+Path.obj : error LNK2019: unresolved external symbol "public: __cdecl Path::Bezier::Bezier(void)" (??0Bezier@Path@@QEAA@XZ) referenced in function "public: void __cdecl Path::AddBezier(struct Path::Vector2,struct Path::Vector2,struct Path::Vector2,struct Path::Vector2,int)" (?AddBezier@Path@@QEAAXUVector2@1@000H@Z)
+C:\Users\david\Documents\C_Games\SphereMatcherC\SM\x64\Debug\SphereMatcher.exe : fatal error LNK1120: 1 unresolved externals

@@ -17,7 +17,7 @@ SDL_Texture* Object::IMG_LoadTexture(SDL_Renderer* renderer, const char* file)
     return texture;
 }
 
-void Object::Start(int ID, float X, float Y, int w, int h, SDL_Renderer* rend, const char* FilePath, bool Static)
+Object::Object(int ID, float X, float Y, int w, int h, SDL_Renderer* rend, const char* FilePath, bool Static)
 {
     ID = ID;
     SetPosition(X, Y);
@@ -41,7 +41,6 @@ void Object::Start(int ID, float X, float Y, int w, int h, SDL_Renderer* rend, c
         std::cout << SDL_GetError();
     }
 }
-
 void Object::SetPosition(float x, float y)
 {
     X = x;
